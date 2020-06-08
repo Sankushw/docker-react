@@ -1,0 +1,14 @@
+FROM node:alpine
+
+#changing the working directory of container to put all our code and config files here
+WORKDIR '/app'
+
+#copy only package.json file as it is only required by npm to run.
+COPY package.json .
+
+RUN npm install
+
+#copy all files from local dir to container dir
+COPY . .
+
+CMD ["npm","run","start"]

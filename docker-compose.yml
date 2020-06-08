@@ -1,0 +1,13 @@
+version: '3'
+services:
+  web:
+    restart: always
+    stdin_open: true
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "4002:3000"
+    volumes:
+      - /app/node_modules
+      - .:/app   
